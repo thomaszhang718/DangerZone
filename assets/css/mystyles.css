@@ -44,6 +44,10 @@
 			padding-left:10px;
 			padding-right: 10px;
 		}
+			#health-panel p{
+				font-size: 20px;
+				font-weight: medium;
+			}		
 			#healthStatistics{
 
 			}
@@ -52,6 +56,10 @@
 			padding-left:10px;
 			padding-right: 10px;
 		}
+			#crime-panel p{
+				font-size: 20px;
+				font-weight: medium;
+			}
 			#crimeStatistics{
 
 			}
