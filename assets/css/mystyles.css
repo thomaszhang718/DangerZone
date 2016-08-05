@@ -17,6 +17,7 @@
 		margin-top: 0;
 		margin-bottom: 0;
 	}
+
 #mainBody, .container{
 	width: 90%;
 	margin-top: 20px;
@@ -32,15 +33,19 @@
 			opacity: .8;
 		}
 				#addressDiv{
-/*					margin-top: 10px;*/
+					margin-top: 10px;
 				}
-				#firstButton{
+				#submitButton{
 					margin-top: 12px;
 					margin-left: 30px;
 				}
 
 		#googleMap{
 			height: 400px;
+		}
+		iframe {
+			height: 100%;
+			width: 100%
 		}
 
 	#rightSide{
