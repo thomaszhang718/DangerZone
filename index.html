@@ -14,11 +14,13 @@
 		<title>Danger Zone</title>
 	</head>
 
-	<body>
-		<header class="page-header" id="dangerHeader">
-				<h1 class="center-align amber lighten-1 box">Danger Zone</h1>
-		</header>
-		
+	<body background="assets/images/background.png">
+		<nav>
+			<div class="nav-wrapper orange accent-4" id="dangerHeader">
+					<h1 class="brand-logo center">Danger Zone</h1>
+			</div>
+		</nav>
+
 		<div class="container" id="mainBody">
 			<div class="row">
 
@@ -30,15 +32,47 @@
 					</div>
 				</div>
 
-				<div class="col s5" id="statistics">
+				<div class="col s5" id="rightSide">
 
-					<div class="box" id="healthStatistics">					
+					<div class="card-panel" id="health-panel">
+						<span class="card-title"><h5>Health Statistics</h2></span>
+						<div id="healthStatistics">
+							<table class="responsive-table">
+								<thead>
+									<tr>
+										<th>Health Stat 1</th>
+										<th>Health Stat 2</th>
+										<th>Health Stat 3</th>																		
+									</tr>
+								</thead>
+								<tbody>
+										<td>Example 1</td>
+										<td>Example 2</td>
+										<td>Example 3</td>							
+								</tbody>
+							</table>			
+						</div>
 					</div>
-
-					<div class="box" id="crimeStatistics">					
+				<div class="card-panel" id="crime-panel">
+						<span class="card-title"><h5>Crime Statistics</h2></span>
+						<div id="crimeStatistics">
+							<table class="responsive-table">
+								<thead>
+									<tr>
+										<th>Crime Stat 1</th>
+										<th>Crime Stat 2</th>
+										<th>Crime Stat 3</th>									
+									</tr>
+								</thead>
+								<tbody>
+										<td>Example 1</td>
+										<td>Example 2</td>
+										<td>Example 3</td>								
+								</tbody>
+							</table>									
+						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 

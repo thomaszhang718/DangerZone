@@ -1,37 +1,47 @@
 .box {
 	border: 2px black solid;
 }
-#mainBody, .container{
-	width: 90%;
-}
-#dangerHeader{
+
+#dangerHeader, .nav-wrapper{
 	margin-top: 0;
 	margin-bottom: 10px;
+	padding-bottom: 10px;
 
 }
 	h1{
-		margin-top: 0;
-		margin-bottom: 0px;
-		padding-top: 30px;
-		padding-bottom: 30px;
+		margin-top: 15px;
 	}
-#leftSide{
-
+#mainBody, .container{
+	width: 90%;
+	margin-top: 20px;
 }
-	#grabAddress{
-		height: 80px;		
-	}
+	#leftSide{
 
-	#googleMap{
-		height: 400px;
 	}
+		#grabAddress{
+			height: 80px;		
+		}
 
-#statistics{
+		#googleMap{
+			height: 400px;
+		}
 
-}
-	#healthStatistics{
-		height: 240px;
+	#rightSide{
+
 	}
-	#crimeStatistics{
-		height: 240px;
-	}
+		th{
+			font-weight: bold;
+		}
+		#health-panel, .card-panel{
+			padding:5px;
+		}
+			#healthStatistics{
+
+			}
+
+		#crime-panel, .card-panel{
+
+		}
+			#crimeStatistics{
+
+			}
