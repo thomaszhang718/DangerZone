@@ -21,6 +21,13 @@
 		#grabAddress{
 			height: 80px;		
 		}
+				#addressDiv{
+					margin-top: 10px;
+				}
+				#firstButton{
+					margin-top: 17px;
+					margin-left: 30px;
+				}
 
 		#googleMap{
 			height: 400px;

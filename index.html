@@ -22,73 +22,74 @@
 		</nav>
 
 		<div class="container" id="mainBody">
-
 			<div class="row">
-				<div class="card-panel col s7" id="grabAddress">
-				<form  name="myform">
-					<div>
+
+		<!-- Left side containing input form and gmaps -->
+		<div class="col s7" id="leftSide">
+			<div class="card-panel" id="grabAddress">
+				<form name="myform">
+					<div class="col s9" id="addressDiv">
 				    	<input type="text" id="address" name="address">
 					</div>
-
+					<div class="buttonDiv">
 			    		<input class="btn" type="submit" id="firstButton" onclick="codeAddress()">
+		    		</div>
 			    </form>
-				</div>
-			</div>
-
-
-
-
-			<div class="row">
-				<div class="col s7" id="leftSide">
-					<div class="box" id="googleMap"></div>
-				</div>
-
-				<div class="col s5" id="rightSide">
-					<div class="card-panel" id="health-panel">
-						<span class="card-title"><h5>Health Statistics</h2></span>
-						<div id="healthStatistics">
-							<table class="responsive-table">
-								<thead>
-									<tr>
-										<th>Health Stat 1</th>
-										<th>Health Stat 2</th>
-										<th>Health Stat 3</th>																		
-									</tr>
-								</thead>
-								<tbody>
-										<td>Example 1</td>
-										<td>Example 2</td>
-										<td>Example 3</td>							
-								</tbody>
-							</table>			
-						</div>
-					</div>
-
-				<div class="card-panel" id="crime-panel">
-					<span class="card-title"><h5>Crime Statistics</h2></span>
-					<div id="crimeStatistics">
-						<table class="responsive-table">
-							<thead>
-								<tr>
-									<th>Crime Stat 1</th>
-									<th>Crime Stat 2</th>
-									<th>Crime Stat 3</th>									
-								</tr>
-							</thead>
-							<tbody>
-									<td>Example 1</td>
-									<td>Example 2</td>
-									<td>Example 3</td>								
-							</tbody>
-						</table>									
-					</div>
-				</div>		
-				</div>
-			</div>
-
-
-
+			</div>				
+			<div class="box" id="googleMap"></div>
 		</div>
+
+		<!-- Right side containing the two statistical tables pulled from AJAX call -->
+		<div class="col s5" id="rightSide">
+			<div class="card-panel" id="health-panel">
+				<span class="card-title"><h5>Health Statistics</h2></span>
+				<div id="healthStatistics">
+					<table class="responsive-table">
+						<thead>
+							<tr>
+								<th>Health Stat 1</th>
+								<th>Health Stat 2</th>
+								<th>Health Stat 3</th>																		
+							</tr>
+						</thead>
+						<tbody>
+								<td>Example 1</td>
+								<td>Example 2</td>
+								<td>Example 3</td>							
+						</tbody>
+					</table>			
+				</div>
+			</div>
+
+
+			<div class="card-panel" id="crime-panel">
+				<span class="card-title"><h5>Crime Statistics</h2></span>
+				<div id="crimeStatistics">
+					<table class="responsive-table">
+						<thead>
+							<tr>
+								<th>Crime Stat 1</th>
+								<th>Crime Stat 2</th>
+								<th>Crime Stat 3</th>									
+							</tr>
+						</thead>
+						<tbody>
+								<td>Example 1</td>
+								<td>Example 2</td>
+								<td>Example 3</td>								
+						</tbody>
+					</table>									
+				</div>
+			</div>
+		</div>
+
+			</div>
+		</div>
+
+
+
+
+
 
 
 
