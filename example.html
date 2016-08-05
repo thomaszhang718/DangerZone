@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCt-3pnuRavIiOh89xkKgXrYwLzk9CZ3wQ"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script type="text/javascript" src="assets/js/gmaps.js"></script>
+   </head>
+   <body>
+      <h2>Google Geocoder</h2>
+      <form name="myform">
+         <div>
+            Address:
+            <br>
+            <input type="text" id="address" name="address">
+            <input type="button" value="Long/Lat" id="firstButton" onclick="codeAddress()">
+         </div>
+         <div>
+            <br>
+            Latitude&emsp;&emsp;&emsp;&emsp;&emsp;Longitude:
+            <br>
+            <input type="text" id="latitude" readonly>
+            <input type="text" id="longitude" readonly>
+         </div>
+      </form>
+      <br>
+      <div id="googleMap" style="height: 400px; width: 400px;">Map goes below
+      </div>
+      <!-- Add Google Maps -->
+   </body>
+</html>
