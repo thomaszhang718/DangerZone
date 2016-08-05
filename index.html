@@ -7,29 +7,39 @@
 
 		<!-- Links to reset, bootstrap, font-awesome and my custom css sheets. -->
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
 		
-		<!-- Title displayed on tab. -->
+		<!-- Title displayed on tab -->
 		<title>Danger Zone</title>
 	</head>
 
 	<body>
+		<header class="page-header" id="dangerHeader">
+				<h1 class="center-align amber lighten-1 box">Danger Zone</h1>
+		</header>
+		
+		<div class="container" id="mainBody">
+			<div class="row">
 
-	<div class="container">
+				<div class="col s7" id="leftSide">
+					<div class="box" id="grabAddress">	
+					</div>
 
-		<div class="row" id="dangerHeader"></div>
+					<div class="box" id="googleMap">					
+					</div>
+				</div>
 
-		<div class="row" id="grabAddress"></div>
+				<div class="col s5" id="statistics">
 
-		<div class="row" id="googleMap"></div>
+					<div class="box" id="healthStatistics">					
+					</div>
 
-		<div class="row" id="statistics">
+					<div class="box" id="crimeStatistics">					
+					</div>
+				</div>
 
-			<div class="col-sm-6" id="healthStatistics"></div>
-			<div class="col-sm-6" id="crimeStatistics"></div>
-
+			</div>
 		</div>
 
 
@@ -38,13 +48,11 @@
 
 
 
-	</div>
-
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
     <script src="assets/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script> 
+    <script src="assets/js/materialize.min.js"></script> 
     <!-- My main js file -->
     <script src="assets/js/myapp.js"></script> 
 	</body>

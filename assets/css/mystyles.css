@@ -1,3 +1,37 @@
 .box {
 	border: 2px black solid;
 }
+#mainBody, .container{
+	width: 90%;
+}
+#dangerHeader{
+	margin-top: 0;
+	margin-bottom: 10px;
+
+}
+	h1{
+		margin-top: 0;
+		margin-bottom: 0px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+#leftSide{
+
+}
+	#grabAddress{
+		height: 80px;		
+	}
+
+	#googleMap{
+		height: 400px;
+	}
+
+#statistics{
+
+}
+	#healthStatistics{
+		height: 240px;
+	}
+	#crimeStatistics{
+		height: 240px;
+	}
