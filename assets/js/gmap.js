@@ -1,6 +1,7 @@
+
 var mapDiv = $('#googleMap');
 
-$('#submitButton').on('click', function() {
+$('form').on('click', "#submitButton", function() {
     geoObject.address = $("#address").val();
     console.log(geoObject.address);
 
