@@ -1,42 +1,50 @@
-var globalLong, globalLat;
-var proceed = false;
+var mapDiv = $('#googleMap');
 
-var mapDiv = document.getElementById('googleMap');
+$('#firstButton').on('click', function() {
+    geoObject.address = $("#address").val().trim();
+    console.log(geoObject.address);
 
-function codeAddress() {
-    var geocoder = new google.maps.Geocoder();
-    var address = document.getElementById("address").value;
-    geocoder.geocode({
-        'address': address
-    }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            var latitude = results[0].geometry.location.lat();
-            var longitude = results[0].geometry.location.lng();
-            //alert("Latitude : " + latitude + "   -   " + "Longitude : " + longitude);
-            document.getElementById("latitude").value = latitude;
-            document.getElementById("longitude").value = longitude;
+    geoObject.convertAddress();
 
-            globalLat = latitude;
-            globalLong = longitude;
-            proceed = true;
-            // console.log(latitude);
-            // console.log(longitude);
-            myFunctionTest(globalLat,globalLong);
+    return false;
+})
 
-        } else {
-            alert("Geocode was not successful for the following reason: " + status);
-        }
-    });
+var geoObject = {
+    address:"",
+    longitude:0,
+    latitude:0,
+    proceed:false,
+
+    convertAddress: function () {
+        var geocoder = new google.maps.Geocoder();
+        var localAddress = geoObject.address;
+        geocoder.geocode({
+            'address': localAddress
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                geoObject.latitude = results[0].geometry.location.lat();
+                geoObject.longitude = results[0].geometry.location.lng();
+
+                console.log("Latitude : " + geoObject.latitude + "   -   " + "Longitude : " + geoObject.longitude);
+
+                geoObject.proceed = true;
+
+                myFunctionTest(geoObject.latitude, geoObject.longitude);
+
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    },
 }
 
 
-function myFunctionTest(x,y){
-
+function myFunctionTest(latitudeL,longitudeL){
     if(proceed){
-     console.log(globalLat,globalLong);
+     console.log(latitudeL, longitudeL);
 
 
-        var myCenter = new google.maps.LatLng(globalLat, globalLong);
+        var myCenter = new google.maps.LatLng(latitudeL, longitudeL);
             var mapProp = {
             center: myCenter,
             zoom: 12,
@@ -45,7 +53,7 @@ function myFunctionTest(x,y){
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var map = new google.maps.Map(mapDiv, mapProp);
 
         var marker = new google.maps.Marker({
             position: myCenter,
