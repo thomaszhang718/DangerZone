@@ -17,6 +17,8 @@ var geoObject = {
     proceed:false,
 
     convertAddress: function () {
+        console.log("it works");
+
         var geocoder = new google.maps.Geocoder();
         var localAddress = geoObject.address;
         geocoder.geocode({
@@ -41,7 +43,7 @@ var geoObject = {
 
 
 function myFunctionTest(latitudeL,longitudeL){
-    if(proceed){
+    if(geoObject.proceed){
      console.log(latitudeL, longitudeL);
 
 
