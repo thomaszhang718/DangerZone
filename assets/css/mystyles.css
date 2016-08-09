@@ -1,6 +1,9 @@
 .box {
 	border: 2px black solid;
 }
+.displayNone {
+	display: none;
+}
 
 #dangerHeader, .nav-wrapper{
 	margin:0;
