@@ -12,9 +12,9 @@ function codeAddress() {
         if (status == google.maps.GeocoderStatus.OK) {
             var latitude = results[0].geometry.location.lat();
             var longitude = results[0].geometry.location.lng();
-            //alert("Latitude : " + latitude + "   -   " + "Longitude : " + longitude);
-            document.getElementById("latitude").value = latitude;
-            document.getElementById("longitude").value = longitude;
+            console.log("Latitude : " + latitude + "   -   " + "Longitude : " + longitude);
+            // document.getElementById("latitude").value = latitude;
+            // document.getElementById("longitude").value = longitude;
 
             globalLat = latitude;
             globalLong = longitude;

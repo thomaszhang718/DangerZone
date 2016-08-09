@@ -45,43 +45,31 @@
 			<!-- Right side containing the two statistical tables pulled from AJAX call -->
 			<div class="col s5" id="rightSide">
 				<div class="card-panel" id="health-panel">
-					<span class="card-title"><p>Health Statistics</p></span>
-					<div id="healthStatistics">
-						<table class="responsive-table">
-							<thead>
-								<tr>
-									<th>Health Stat 1</th>
-									<th>Health Stat 2</th>
-									<th>Health Stat 3</th>																		
-								</tr>
-							</thead>
-							<tbody>
-									<td>Example 1</td>
-									<td>Example 2</td>
-									<td>Example 3</td>							
-							</tbody>
-						</table>			
+					<span class="card-title"><p>Infectious Diseases:</p></span>
+
+					<div class="row">
+						<select class="browser-default" id="diseaseSelect" onchange="return callAjax()">
+							<option value="" disabled selected>Choose your disease</option>
+							<option value="WHS3_40">Cholera</option>
+							<option value="WHS3_41">Diphtheria</option>
+							<option value="WHS3_47">Meningitis</option>
+							<option value="WHS3_48">Malaria</option>
+							<option value="WHS3_49">Polio</option>
+							<option value="WHS3_50">Yellow Fever</option>
+							<option value="WHS3_51">H5N1 Influenza</option>
+							<option value="WHS3_52">Plague</option>
+							<option value="WHS3_53">Mumps</option>
+							<option value="WHS3_54">Tuberculosis</option>
+							<option value="WHS3_57">Rubella</option>
+						</select>
 					</div>
 				</div>
 
 
-				<div class="card-panel" id="crime-panel">
-					<span class="card-title"><p>Crime Statistics</p></span>
-					<div id="crimeStatistics">
-						<table class="responsive-table">
-							<thead>
-								<tr>
-									<th>Crime Stat 1</th>
-									<th>Crime Stat 2</th>
-									<th>Crime Stat 3</th>									
-								</tr>
-							</thead>
-							<tbody>
-									<td>Example 1</td>
-									<td>Example 2</td>
-									<td>Example 3</td>								
-							</tbody>
-						</table>									
+				<div class="card-panel" id="stats-panel">
+					<span class="card-title"><p>Country Statistics</p></span>
+					<div id="countryStatistics">
+									
 					</div>
 				</div>
 			</div>
