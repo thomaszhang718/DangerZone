@@ -25,13 +25,13 @@
 			<div class="row">
 
 				<!-- Left side containing input form and gmaps -->
-				<div class="col s7" id="leftSide">
+				<div class="col m7" id="leftSide">
 					<div class="card-panel" id="grabAddress">
 						<form name="myform">
 							<div class="col s9" id="addressDiv">
 						    	<input type="text" placeholder="Travel Destination" id="address" name="address">
 							</div>
-							<div class="buttonDiv">
+							<div class="col s3 buttonDiv">
 					    		<input class="btn" type="button" id="submitButton" value="Submit" onclick="codeAddress()">
 				    		</div>
 					    </form>
@@ -43,7 +43,7 @@
 				</div>
 
 				<!-- Right side containing the two statistical tables pulled from AJAX call -->
-				<div class="col s5" id="rightSide">
+				<div class="col m5 pull-s1" id="rightSide">
 					<div class="row">
 						<select class="browser-default" id="diseaseSelect" onchange="return callAjax()">
 							<option value="" disabled selected>Choose your disease</option>
