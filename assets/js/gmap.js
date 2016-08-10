@@ -622,9 +622,31 @@ function callAjax(country) {
 
         console.log(CDCresponse);
 
-        for (i = 0; i < CDCresponse.fact.length; i++) {
-            console.log("Year: " + CDCresponse.fact[i].Dim[1].code);
-            console.log("Reported of Reported Cases: " + Math.round(CDCresponse.fact[i].value.display));
+        if (CDCresponse.fact.length < 1) {
+            $('#countryStatistics').empty();
+            $('#countryStatistics').text("No " + diseaseName + " data on World Health Organization API");
+        } else {
+            for (i = 0; i < CDCresponse.fact.length; i++) {
+                for (j = 0; j < CDCresponse.fact[i].Dim.length; j++) {
+                    if (CDCresponse.fact[i].Dim[j].category == "YEAR") {
+                        
+                        $('#countryStatistics').empty();
+
+                        var statDiv = $('<div>');
+
+                        var statP = $('<p>');
+
+                        statP.html("Year: " + CDCresponse.fact[i].Dim[j].code + "<br>" + "Reported of Reported Cases: " + Math.round(CDCresponse.fact[i].value.display));
+                        
+                        console.log("Year: " + CDCresponse.fact[i].Dim[j].code);
+                        console.log("Reported of Reported Cases: " + Math.round(CDCresponse.fact[i].value.display));
+
+                        statDiv.append(statP);
+                        $('#countryStatistics').append(statDiv);
+                    }
+                }
+            }
+
         }
 
         //return true
