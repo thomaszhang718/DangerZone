@@ -115,19 +115,44 @@ var chartStuff = {
     	                'rgba(68,93,110,1)',
     	            ],
     	            borderWidth: 2,
-                    spanGaps: true
-    	        }]
+                    spanGaps: true,                  
+    	        }],
     	    },
 
-
     	    options: {
+
     	        scales: {
     	            yAxes: [{
+                        gridLines:{
+                            display:false,
+                            drawBorder:true,
+                        },
+                        scaleLabel:{
+                            display:true,
+                            labelString:"Number of Reported Cases",
+                        },                                           
     	                ticks: {
     	                    beginAtZero:true
-    	                }
-    	            }]
-    	        }
+    	                },
+    	            }],
+                    xAxes: [{
+                        gridLines:{
+                            display:false,
+                            drawBorder:true,
+                            label:"good",
+                        },
+                        scaleLabel:{
+                            display:true,
+                            labelString:"Year",
+                        },                                             
+                        ticks: {
+                            beginAtZero:true
+                        },
+                    }]                    
+    	        },
+                legend:{
+                    display:false,
+                },
     	    }
     	});
     },
@@ -224,8 +249,13 @@ function callAjax(country) {
     var diseaseName = selectedOption.getAttribute("data-disease");
     console.log(diseaseName);
 
-    $('#countryP').text(country + " " + diseaseName + " Statistics");
-
+    if (country == null){
+        $('#countryP').text("Reported Cases of " + diseaseName);
+    }
+    else{
+        $('#countryP').text("Reported Cases of " + diseaseName + " in " + country);
+        $('#countryP').append("<br><p>from 2000 to 2014</p>");
+    }
 
 
     $.ajax({url: queryURL, method: "GET"}).done(function(CDCresponse) {

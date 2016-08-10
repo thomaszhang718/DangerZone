@@ -22,53 +22,50 @@
 		</nav>
 
 		<div class="container" id="mainBody">
-			<div class="row">
-
-				<!-- Left side containing input form and gmaps -->
-				<div class="col m7" id="leftSide">
+			<div class="row" id="topRow">
+				<div class="col s6">
 					<div class="card-panel" id="grabAddress">
 						<form name="myform">
 							<div class="col s9" id="addressDiv">
 						    	<input type="text" placeholder="Travel Destination" id="address" name="address">
 							</div>
-							<div class="col s3 buttonDiv">
+							<div class="col s3 buttonDiv hide-on-small-only">
 					    		<input class="btn" type="button" id="submitButton" value="Submit" onclick="codeAddress()">
 				    		</div>
 					    </form>
 					</div>
 					<input class="displayNone" type="text" id="latitude" readonly>
-	            	<input class="displayNone" type="text" id="longitude" readonly>			
-					<div class="box" id="googleMap">
-					</div>
+	            	<input class="displayNone" type="text" id="longitude" readonly>
+            	</div>
+
+				<div class="col s6">
+					<select class="center-align browser-default" id="diseaseSelect" onchange="return callAjax()">
+						<option value="" disabled selected>Choose your disease</option>
+						<option value="WHS3_40" data-disease="Cholera">Cholera</option>
+						<option value="WHS3_41" data-disease="Diphtheria">Diphtheria</option>
+						<option value="WHS3_47" data-disease="Meningitis">Meningitis</option>
+						<option value="WHS3_48" data-disease="Malaria">Malaria</option>
+						<option value="WHS3_49" data-disease="Polio">Polio</option>
+						<option value="WHS3_50" data-disease="Yellow Fever">Yellow Fever</option>
+						<option value="WHS3_51" data-disease="H5N1 Influenza">H5N1 Influenza</option>
+						<option value="WHS3_52" data-disease="Plague">Plague</option>
+						<option value="WHS3_53" data-disease="Mumps">Mumps</option>
+						<option value="WHS3_54" data-disease="Tuberculosis">Tuberculosis</option>
+						<option value="WHS3_57" data-disease="Rubella">Rubella</option>
+					</select>
+				</div>
+			</div>
+
+            <div class="row" id="bottomRow">
+				<div class="col s6 box" id="googleMap">
 				</div>
 
-				<!-- Right side containing the two statistical tables pulled from AJAX call -->
-				<div class="col m5 pull-s1" id="rightSide">
-					<div class="row">
-						<select class="browser-default" id="diseaseSelect" onchange="return callAjax()">
-							<option value="" disabled selected>Choose your disease</option>
-							<option value="WHS3_40" data-disease="Cholera">Cholera</option>
-							<option value="WHS3_41" data-disease="Diphtheria">Diphtheria</option>
-							<option value="WHS3_47" data-disease="Meningitis">Meningitis</option>
-							<option value="WHS3_48" data-disease="Malaria">Malaria</option>
-							<option value="WHS3_49" data-disease="Polio">Polio</option>
-							<option value="WHS3_50" data-disease="Yellow Fever">Yellow Fever</option>
-							<option value="WHS3_51" data-disease="H5N1 Influenza">H5N1 Influenza</option>
-							<option value="WHS3_52" data-disease="Plague">Plague</option>
-							<option value="WHS3_53" data-disease="Mumps">Mumps</option>
-							<option value="WHS3_54" data-disease="Tuberculosis">Tuberculosis</option>
-							<option value="WHS3_57" data-disease="Rubella">Rubella</option>
-						</select>
-					</div>
-
-					<div class="card-panel box" id="stats-panel">
-						<span class="card-title"><p id="countryP">Country Statistics</p></span>
-						<div id="countryStatistics">
-							<canvas id="myChart" width="460" height="300" margin-top="25"></canvas>	
-						</div>
+				<div class="col s6 card-panel box" id="stats-panel">
+					<span class="card-title"><p id="countryP">Country Statistics</p></span>
+					<div id="countryStatistics">
+						<canvas id="myChart" width="570" height="300"></canvas>	
 					</div>
 				</div>
-
 			</div>
 		</div>
 

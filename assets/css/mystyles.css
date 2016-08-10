@@ -25,9 +25,6 @@
 	width: 90%;
 	margin-top: 20px;
 }
-	#leftSide{
-
-	}
 		#grabAddress{
 			height: 80px;
 			padding-top: 10px;
@@ -57,9 +54,6 @@
 			width: 100%
 		}
 
-	#rightSide{
-
-	}
 		th{
 			font-weight: bold;
 		}
@@ -87,7 +81,8 @@
 				font-size: 20px;
 				font-weight: medium;
 				text-align: center;
+				margin-top: 10px;
 			}
 			#myChart{
-				margin-top: 25px;
-			}			
+				
+			}
