@@ -50,24 +50,24 @@
 					<div class="row">
 						<select class="browser-default" id="diseaseSelect" onchange="return callAjax()">
 							<option value="" disabled selected>Choose your disease</option>
-							<option value="WHS3_40">Cholera</option>
-							<option value="WHS3_41">Diphtheria</option>
-							<option value="WHS3_47">Meningitis</option>
-							<option value="WHS3_48">Malaria</option>
-							<option value="WHS3_49">Polio</option>
-							<option value="WHS3_50">Yellow Fever</option>
-							<option value="WHS3_51">H5N1 Influenza</option>
-							<option value="WHS3_52">Plague</option>
-							<option value="WHS3_53">Mumps</option>
-							<option value="WHS3_54">Tuberculosis</option>
-							<option value="WHS3_57">Rubella</option>
+							<option value="WHS3_40" data-disease="Cholera">Cholera</option>
+							<option value="WHS3_41" data-disease="Diphtheria">Diphtheria</option>
+							<option value="WHS3_47" data-disease="Meningitis">Meningitis</option>
+							<option value="WHS3_48" data-disease="Malaria">Malaria</option>
+							<option value="WHS3_49" data-disease="Polio">Polio</option>
+							<option value="WHS3_50" data-disease="Yellow Fever">Yellow Fever</option>
+							<option value="WHS3_51" data-disease="H5N1 Influenza">H5N1 Influenza</option>
+							<option value="WHS3_52" data-disease="Plague">Plague</option>
+							<option value="WHS3_53" data-disease="Mumps">Mumps</option>
+							<option value="WHS3_54" data-disease="Tuberculosis">Tuberculosis</option>
+							<option value="WHS3_57" data-disease="Rubella">Rubella</option>
 						</select>
 					</div>
 				</div>
 
 
 				<div class="card-panel" id="stats-panel">
-					<span class="card-title"><p>Country Statistics</p></span>
+					<span class="card-title"><p id="countryP">Country Statistics</p></span>
 					<div id="countryStatistics">
 									
 					</div>
