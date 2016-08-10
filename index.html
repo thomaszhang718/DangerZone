@@ -44,32 +44,27 @@
 
 				<!-- Right side containing the two statistical tables pulled from AJAX call -->
 				<div class="col s5" id="rightSide">
-					<div class="card-panel" id="health-panel">
-						<span class="card-title"><p>Infectious Diseases:</p></span>
-
-						<div class="row">
-							<select class="browser-default" id="diseaseSelect" onchange="return callAjax()">
-								<option value="" disabled selected>Choose your disease</option>
-								<option value="WHS3_40" data-disease="Cholera">Cholera</option>
-								<option value="WHS3_41" data-disease="Diphtheria">Diphtheria</option>
-								<option value="WHS3_47" data-disease="Meningitis">Meningitis</option>
-								<option value="WHS3_48" data-disease="Malaria">Malaria</option>
-								<option value="WHS3_49" data-disease="Polio">Polio</option>
-								<option value="WHS3_50" data-disease="Yellow Fever">Yellow Fever</option>
-								<option value="WHS3_51" data-disease="H5N1 Influenza">H5N1 Influenza</option>
-								<option value="WHS3_52" data-disease="Plague">Plague</option>
-								<option value="WHS3_53" data-disease="Mumps">Mumps</option>
-								<option value="WHS3_54" data-disease="Tuberculosis">Tuberculosis</option>
-								<option value="WHS3_57" data-disease="Rubella">Rubella</option>
-							</select>
-						</div>
+					<div class="row">
+						<select class="browser-default" id="diseaseSelect" onchange="return callAjax()">
+							<option value="" disabled selected>Choose your disease</option>
+							<option value="WHS3_40" data-disease="Cholera">Cholera</option>
+							<option value="WHS3_41" data-disease="Diphtheria">Diphtheria</option>
+							<option value="WHS3_47" data-disease="Meningitis">Meningitis</option>
+							<option value="WHS3_48" data-disease="Malaria">Malaria</option>
+							<option value="WHS3_49" data-disease="Polio">Polio</option>
+							<option value="WHS3_50" data-disease="Yellow Fever">Yellow Fever</option>
+							<option value="WHS3_51" data-disease="H5N1 Influenza">H5N1 Influenza</option>
+							<option value="WHS3_52" data-disease="Plague">Plague</option>
+							<option value="WHS3_53" data-disease="Mumps">Mumps</option>
+							<option value="WHS3_54" data-disease="Tuberculosis">Tuberculosis</option>
+							<option value="WHS3_57" data-disease="Rubella">Rubella</option>
+						</select>
 					</div>
 
-
-					<div class="card-panel" id="stats-panel">
+					<div class="card-panel box" id="stats-panel">
 						<span class="card-title"><p id="countryP">Country Statistics</p></span>
 						<div id="countryStatistics">
-							<canvas class="box" id="myChart" width="400" height="400"></canvas>	
+							<canvas id="myChart" width="460" height="300" margin-top="25"></canvas>	
 						</div>
 					</div>
 				</div>

@@ -70,50 +70,71 @@ function myFunctionTest(x,y){
 
 //WHO API stuff
 
-var testArray = [50, 19, 3, 5, 2, 3];
+// ALL CHART FUNCTIONS BELOW
+var chartStuff = {
+    yearsPlotted:[2000, 2001, 2002, 2003, 2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014], 
+    //Info from ajax call
+    yearsRecorded:[],
+    casesReported:[],
 
-function makeChart(yArray) {
-	var ctx = $("#myChart");
 
-	var myChart = new Chart(ctx, {
-	    type: 'bar',
-	    data: {
-	        labels: [10, 5, 2, 3, 11],
-	        datasets: [{
-	            label: '# of Votes',
-	            data: yArray,
-	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(75, 192, 192, 0.2)',
-	                'rgba(153, 102, 255, 0.2)',
-	                'rgba(255, 159, 64, 0.2)'
-	            ],
-	            borderColor: [
-	                'rgba(255,99,132,1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(75, 192, 192, 1)',
-	                'rgba(153, 102, 255, 1)',
-	                'rgba(255, 159, 64, 1)'
-	            ],
-	            borderWidth: 1
-	        }]
-	    },
-	    options: {
-	        scales: {
-	            yAxes: [{
-	                ticks: {
-	                    beginAtZero:true
-	                }
-	            }]
-	        }
-	    }
-	});
+    casesPlotted:[],
+
+
+    sortCases: function(){
+        for (var i=0; i<this.yearsPlotted.length; i++){
+            for (var j=0; j<this.yearsRecorded.length;j++){
+                if (this.yearsRecorded[j] == this.yearsPlotted[i]){
+                    this.casesPlotted[i] = this.casesReported[j];
+                }
+            }
+        }
+
+
+        console.log(this.yearsRecorded);
+        console.log(this.casesReported);
+    },
+
+    makeChart: function (Ycases) {
+    	var chartDiv = $("#myChart");
+
+    	var myChart = new Chart(chartDiv, {
+    	    type: 'line',
+    	    data: {
+    	        labels: chartStuff.yearsPlotted,
+    	        datasets: [{
+    	            label: '# of Reported Cases',
+    	            data: Ycases,
+    	            backgroundColor: [
+    	                'rgba(0, 0, 0, 0)',
+    	            ],
+    	            borderColor: [
+    	                'rgba(68,93,110,1)',
+    	            ],
+    	            borderWidth: 2,
+                    spanGaps: true
+    	        }]
+    	    },
+
+
+    	    options: {
+    	        scales: {
+    	            yAxes: [{
+    	                ticks: {
+    	                    beginAtZero:true
+    	                }
+    	            }]
+    	        }
+    	    }
+    	});
+    },
+
+    emptyChart: function(){
+        this.yearsRecorded = [];
+        this.casesReported = [];
+    }
 }
-
-makeChart(testArray);
+//////////////////////////////////
 
 //console.log(results[0].address_components[3].long_name)
 //var longCountry = results[0].address_components[results[0].address_components.length - 1].long_name
@@ -121,255 +142,30 @@ makeChart(testArray);
 function callAjax(country) {
 
     var countryAbb = [
-        "ABW",
-        "AFG",
-        "AGO",
-        "AIA",
-        "ALA",
-        "ALB",
-        "AND",
-        "ARE",
-        "ARG",
-        "ARM",
-        "ASM",
-        "ATA",
-        "ATF",
-        "ATG",
-        "AUS",
-        "AUT",
-        "AZE",
-        "BDI",
-        "BEL",
-        "BEN",
-        "BES",
-        "BFA",
-        "BGD",
-        "BGR",
-        "BHR",
-        "BHS",
-        "BIH",
-        "BLM",
-        "BLR",
-        "BLZ",
-        "BMU",
-        "BOL",
-        "BRA",
-        "BRB",
-        "BRN",
-        "BTN",
-        "BVT",
-        "BWA",
-        "CAF",
-        "CAN",
-        "CCK",
-        "CHE",
-        "CHL",
-        "CHN",
-        "CIV",
-        "CMR",
-        "COD",
-        "COG",
-        "COK",
-        "COL",
-        "COM",
-        "CPV",
-        "CRI",
-        "CUB",
-        "CUW",
-        "CXR",
-        "CYM",
-        "CYP",
-        "CZE",
-        "DEU",
-        "DJI",
-        "DMA",
-        "DNK",
-        "DOM",
-        "DZA",
-        "ECU",
-        "EGY",
-        "ERI",
-        "ESH",
-        "ESP",
-        "EST",
-        "ETH",
-        "FIN",
-        "FJI",
-        "FLK",
-        "FRA",
-        "FRO",
-        "FSM",
-        "GAB",
-        "GBR",
-        "GEO",
-        "GGY",
-        "GHA",
-        "GIB",
-        "GIN",
-        "GLP",
-        "GMB",
-        "GNB",
-        "GNQ",
-        "GRC",
-        "GRD",
-        "GRL",
-        "GTM",
-        "GUF",
-        "GUM",
-        "GUY",
-        "HKG",
-        "HMD",
-        "HND",
-        "HRV",
-        "HTI",
-        "HUN",
-        "IDN",
-        "IMN",
-        "IND",
-        "IOT",
-        "IRL",
-        "IRN",
-        "IRQ",
-        "ISL",
-        "ISR",
-        "ITA",
-        "JAM",
-        "JEY",
-        "JOR",
-        "JPN",
-        "KAZ",
-        "KEN",
-        "KGZ",
-        "KHM",
-        "KIR",
-        "KNA",
-        "KOR",
-        "KWT",
-        "LAO",
-        "LBN",
-        "LBR",
-        "LBY",
-        "LCA",
-        "LIE",
-        "LKA",
-        "LSO",
-        "LTU",
-        "LUX",
-        "LVA",
-        "MAC",
-        "MAF",
-        "MAR",
-        "MCO",
-        "MDA",
-        "MDG",
-        "MDV",
-        "MEX",
-        "MHL",
-        "MKD",
-        "MLI",
-        "MLT",
-        "MMR",
-        "MNE",
-        "MNG",
-        "MNP",
-        "MOZ",
-        "MRT",
-        "MSR",
-        "MTQ",
-        "MUS",
-        "MWI",
-        "MYS",
-        "MYT",
-        "NAM",
-        "NCL",
-        "NER",
-        "NFK",
-        "NGA",
-        "NIC",
-        "NIU",
-        "NLD",
-        "NOR",
-        "NPL",
-        "NRU",
-        "NZL",
+        "ABW","AFG","AGO","AIA","ALA","ALB","AND","ARE","ARG","ARM","ASM","ATA","ATF","ATG","AUS","AUT","AZE",
+        "BDI","BEL","BEN","BES","BFA","BGD","BGR","BHR","BHS","BIH","BLM","BLR","BLZ","BMU","BOL","BRA","BRB","BRN","BTN","BVT","BWA",
+        "CAF","CAN","CCK","CHE","CHL","CHN","CIV","CMR","COD","COG","COK","COL","COM","CPV","CRI","CUB","CUW","CXR","CYM","CYP","CZE",
+        "DEU","DJI","DMA","DNK","DOM","DZA",
+        "ECU","EGY","ERI","ESH","ESP","EST","ETH",
+        "FIN","FJI","FLK","FRA","FRO","FSM",
+        "GAB","GBR","GEO","GGY","GHA","GIB","GIN","GLP","GMB","GNB","GNQ","GRC","GRD","GRL","GTM","GUF","GUM","GUY",
+        "HKG","HMD","HND","HRV","HTI","HUN",
+        "IDN","IMN","IND","IOT","IRL","IRN","IRQ","ISL","ISR","ITA",
+        "JAM","JEY","JOR","JPN",
+        "KAZ","KEN","KGZ","KHM","KIR","KNA","KOR","KWT",
+        "LAO","LBN","LBR","LBY","LCA","LIE","LKA","LSO","LTU","LUX","LVA",
+        "MAC","MAF","MAR","MCO","MDA","MDG","MDV","MEX","MHL","MKD","MLI","MLT","MMR","MNE","MNG","MNP","MOZ","MRT","MSR","MTQ","MUS","MWI","MYS","MYT","NAM",
+        "NCL","NER","NFK","NGA","NIC","NIU","NLD","NOR","NPL","NRU","NZL",
         "OMN",
-        "PAK",
-        "PAN",
-        "PCN",
-        "PER",
-        "PHL",
-        "PLW",
-        "PNG",
-        "POL",
-        "PRI",
-        "PRK",
-        "PRT",
-        "PRY",
-        "PSE",
-        "PYF",
+        "PAK","PAN","PCN","PER","PHL","PLW","PNG","POL","PRI","PRK","PRT","PRY","PSE","PYF",
         "QAT",
-        "REU",
-        "ROU",
-        "RUS",
-        "RWA",
-        "SAU",
-        "SDN",
-        "SEN",
-        "SGP",
-        "SGS",
-        "SHN",
-        "SJM",
-        "SLB",
-        "SLE",
-        "SLV",
-        "SMR",
-        "SOM",
-        "SPM",
-        "SRB",
-        "SSD",
-        "STP",
-        "SUR",
-        "SVK",
-        "SVN",
-        "SWE",
-        "SWZ",
-        "SXM",
-        "SYC",
-        "SYR",
-        "TCA",
-        "TCD",
-        "TGO",
-        "THA",
-        "TJK",
-        "TKL",
-        "TKM",
-        "TLS",
-        "TON",
-        "TTO",
-        "TUN",
-        "TUR",
-        "TUV",
-        "TWN",
-        "TZA",
-        "UGA",
-        "UKR",
-        "UMI",
-        "URY",
-        "USA",
-        "UZB",
-        "VAT",
-        "VCT",
-        "VEN",
-        "VGB",
-        "VIR",
-        "VNM",
-        "VUT",
-        "WLF",
-        "WSM",
-        "YEM",
-        "ZAF",
-        "ZMB",
-        "ZWE"
+        "REU","ROU","RUS","RWA",
+        "SAU","SDN","SEN","SGP","SGS","SHN","SJM","SLB","SLE","SLV","SMR","SOM","SPM","SRB","SSD","STP","SUR","SVK","SVN","SWE","SWZ","SXM","SYC","SYR",
+        "TCA","TCD","TGO","THA","TJK","TKL","TKM","TLS","TON","TTO","TUN","TUR","TUV","TWN","TZA",
+        "UGA","UKR","UMI","URY","USA","UZB",
+        "VAT","VCT","VEN","VGB","VIR","VNM","VUT",
+        "WLF","WSM","YEM",
+        "ZAF","ZMB","ZWE"
     ];
 
     var countryName = [
@@ -660,6 +456,8 @@ function callAjax(country) {
 
 
     $.ajax({url: queryURL, method: "GET"}).done(function(CDCresponse) {
+        //When making an ajax call, immidiately clear out chart data
+        chartStuff.emptyChart();
 
         console.log(CDCresponse);
 
@@ -670,23 +468,22 @@ function callAjax(country) {
             for (i = 0; i < CDCresponse.fact.length; i++) {
                 for (j = 0; j < CDCresponse.fact[i].Dim.length; j++) {
                     if (CDCresponse.fact[i].Dim[j].category == "YEAR") {
+
+                        var year = CDCresponse.fact[i].Dim[j].code;
+                        var cases = Math.round(CDCresponse.fact[i].value.display);
                         
-                        
+                        console.log("Year: " + year);
+                        console.log("Reported of Reported Cases: " + cases);
 
-                        var statDiv = $('<div>');
-
-                        var statP = $('<p>');
-
-                        statP.html("Year: " + CDCresponse.fact[i].Dim[j].code + "<br>" + "Reported of Reported Cases: " + Math.round(CDCresponse.fact[i].value.display));
-                        
-                        console.log("Year: " + CDCresponse.fact[i].Dim[j].code);
-                        console.log("Reported of Reported Cases: " + Math.round(CDCresponse.fact[i].value.display));
-
-                        statDiv.append(statP);
-                        $('#countryStatistics').append(statDiv);
+                        //Fill up the years and cases array
+                        chartStuff.casesReported.push(cases);
+                        chartStuff.yearsRecorded.push(year);                        
                     }
                 }
             }
+            //Once the years and cases arrays are filled up, sort them. Then draw the chart.
+            chartStuff.sortCases();
+            chartStuff.makeChart(chartStuff.casesPlotted);
 
         }
 
