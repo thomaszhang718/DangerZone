@@ -70,9 +70,50 @@ function myFunctionTest(x,y){
 
 //WHO API stuff
 
+var testArray = [50, 19, 3, 5, 2, 3];
 
+function makeChart(yArray) {
+	var ctx = $("#myChart");
 
+	var myChart = new Chart(ctx, {
+	    type: 'bar',
+	    data: {
+	        labels: [10, 5, 2, 3, 11],
+	        datasets: [{
+	            label: '# of Votes',
+	            data: yArray,
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(75, 192, 192, 0.2)',
+	                'rgba(153, 102, 255, 0.2)',
+	                'rgba(255, 159, 64, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(75, 192, 192, 1)',
+	                'rgba(153, 102, 255, 1)',
+	                'rgba(255, 159, 64, 1)'
+	            ],
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
+	        }
+	    }
+	});
+}
 
+makeChart(testArray);
 
 //console.log(results[0].address_components[3].long_name)
 //var longCountry = results[0].address_components[results[0].address_components.length - 1].long_name
@@ -630,7 +671,7 @@ function callAjax(country) {
                 for (j = 0; j < CDCresponse.fact[i].Dim.length; j++) {
                     if (CDCresponse.fact[i].Dim[j].category == "YEAR") {
                         
-                        $('#countryStatistics').empty();
+                        
 
                         var statDiv = $('<div>');
 
