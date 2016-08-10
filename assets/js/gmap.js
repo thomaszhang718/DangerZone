@@ -73,15 +73,16 @@ function myFunctionTest(x,y){
 // ALL CHART FUNCTIONS BELOW
 var chartStuff = {
     yearsPlotted:[2000, 2001, 2002, 2003, 2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014], 
+
     //Info from ajax call
     yearsRecorded:[],
     casesReported:[],
-
 
     casesPlotted:[],
 
 
     sortCases: function(){
+
         for (var i=0; i<this.yearsPlotted.length; i++){
             for (var j=0; j<this.yearsRecorded.length;j++){
                 if (this.yearsRecorded[j] == this.yearsPlotted[i]){
@@ -90,21 +91,23 @@ var chartStuff = {
             }
         }
 
-
         console.log(this.yearsRecorded);
         console.log(this.casesReported);
+
+        console.log(this.yearsPlotted);
+        console.log(this.casesPlotted);
     },
 
-    makeChart: function (Ycases) {
+    makeChart: function () {
     	var chartDiv = $("#myChart");
 
     	var myChart = new Chart(chartDiv, {
     	    type: 'line',
     	    data: {
-    	        labels: chartStuff.yearsPlotted,
+    	        labels: this.yearsPlotted,
     	        datasets: [{
     	            label: '# of Reported Cases',
-    	            data: Ycases,
+    	            data: this.casesPlotted,
     	            backgroundColor: [
     	                'rgba(0, 0, 0, 0)',
     	            ],
@@ -132,6 +135,7 @@ var chartStuff = {
     emptyChart: function(){
         this.yearsRecorded = [];
         this.casesReported = [];
+        this.casesPlotted = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
     }
 }
 //////////////////////////////////
@@ -157,8 +161,7 @@ function callAjax(country) {
     ];
 
     var countryName = [
-        "Aruba",
-        "Afghanistan","Angola","Anguilla","Åland Islands","Albania","Andorra","United Arab Emirates","Argentina","Armenia",
+        "Aruba","Afghanistan","Angola","Anguilla","Åland Islands","Albania","Andorra","United Arab Emirates","Argentina","Armenia",
         "American Samoa","Antarctica","French Southern Territories","Antigua and Barbuda","Australia","Austria",
         "Azerbaijan","Burundi","Belgium","Benin","Bonaire, Sint Eustatius and Saba","Burkina Faso","Bangladesh",
         "Bulgaria","Bahrain","Bahamas","Bosnia and Herzegovina","Saint Barthélemy","Belarus","Belize","Bermuda",
@@ -232,8 +235,9 @@ function callAjax(country) {
         console.log(CDCresponse);
 
         if (CDCresponse.fact.length < 1) {
-            $('#countryStatistics').empty();
-            $('#countryStatistics').text("No " + diseaseName + " data on World Health Organization API");
+            chartStuff.makeChart();
+
+            // $('#countryStatistics').text("No " + diseaseName + " data on World Health Organization API");
         } else {
             for (i = 0; i < CDCresponse.fact.length; i++) {
                 for (j = 0; j < CDCresponse.fact[i].Dim.length; j++) {
@@ -253,7 +257,7 @@ function callAjax(country) {
             }
             //Once the years and cases arrays are filled up, sort them. Then draw the chart.
             chartStuff.sortCases();
-            chartStuff.makeChart(chartStuff.casesPlotted);
+            chartStuff.makeChart();
 
         }
 
