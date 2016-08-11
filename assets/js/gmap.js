@@ -248,24 +248,24 @@ function callAjax(country) {
     };
 
     //AJAX call to WHO API
-    $.ajax({url: queryURL, method: 'GET'}).done(function(CDCresponse) {
+    $.ajax({url: queryURL, method: 'GET'}).done(function(WHOresponse) {
         
         //When making an ajax call, immidiately clear out chart data
         chartStuff.emptyChart();
 
-        //console.log(CDCresponse);
+        //console.log(WHOresponse);
 
-        if (CDCresponse.fact.length < 1) {
+        if (WHOresponse.fact.length < 1) {
         	//create a blank chart if no available WHO data
             chartStuff.makeChart();
         } else {
         	//create a data chart using chartJS library using year and number of cases reported from WHO API
-            for (i = 0; i < CDCresponse.fact.length; i++) {
-                for (j = 0; j < CDCresponse.fact[i].Dim.length; j++) {
-                    if (CDCresponse.fact[i].Dim[j].category == 'YEAR') {
+            for (i = 0; i < WHOresponse.fact.length; i++) {
+                for (j = 0; j < WHOresponse.fact[i].Dim.length; j++) {
+                    if (WHOresponse.fact[i].Dim[j].category == 'YEAR') {
 
-                        var year = CDCresponse.fact[i].Dim[j].code;
-                        var cases = Math.round(CDCresponse.fact[i].value.display);
+                        var year = WHOresponse.fact[i].Dim[j].code;
+                        var cases = Math.round(WHOresponse.fact[i].value.display);
                         
                         //console.log('Year: ' + year);
                         //console.log('Reported of Reported Cases: ' + cases);
