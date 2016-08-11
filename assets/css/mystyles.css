@@ -47,7 +47,9 @@
 				}
 
 		#googleMap{
-			height: 400px;
+			position: relative;
+			top:-10px;
+			height: 430px;
 		}
 		iframe {
 			height: 100%;
@@ -57,12 +59,15 @@
 		th{
 			font-weight: bold;
 		}
-
+		#ajaxs{
+			position: relative;
+			top: -60px;
+		}
 		#diseaseSelect{
 			height: 40px;
-			margin-top: 30px;
+			margin-top: 10px;
 			margin-bottom: 15px;
-			margin-left: 60px;
+			margin-left: 90px;
 			width: 400px;
 			color: white;
 			background-color: black;
@@ -71,18 +76,34 @@
 
 		#stats-panel{
 			margin-top: 0px;
+			margin-top: 10px;
+			margin-left: 100px;
 			margin-bottom: 0px;
+			padding-top: 10px;
 			padding-left:10px;
 			padding-right: 10px;
 			opacity: .95;
-			height: 400px;			
+			height: 260px;
+			width: 400px;		
 		}
 			#stats-panel p{
-				font-size: 20px;
+				font-size: 15px;
 				font-weight: medium;
 				text-align: center;
-				margin-top: 10px;
 			}
 			#myChart{
-				
+				margin-top: 10px;
+			}
+		#news-panel{
+			margin-top: 0;
+			padding-top: 10px;
+			margin-left: 50px;
+			opacity: .95;
+			height: 190px;
+			width: 500px;
+		}
+			#news-panel p{
+				font-size: 15px;
+				font-weight: medium;
+				text-align: center;			
 			}

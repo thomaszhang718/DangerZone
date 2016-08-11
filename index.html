@@ -25,7 +25,7 @@
 			<div class="row" id="topRow">
 				<div class="col s6">
 					<div class="card-panel" id="grabAddress">
-						<form name="myform">
+						<form name="myform" onkeypress="return event.keyCode != 13">
 							<div class="col s9" id="addressDiv">
 						    	<input type="text" placeholder="Travel Destination" id="address" name="address">
 							</div>
@@ -57,16 +57,30 @@
 			</div>
 
             <div class="row" id="bottomRow">
-				<div class="col s6 box" id="googleMap">
-				</div>
+				<div class="col s6 box" id="googleMap"></div>
 
-				<div class="col s6 card-panel box" id="stats-panel">
-					<span class="card-title"><p id="countryP">Country Statistics</p></span>
-					<div id="countryStatistics">
-						<canvas id="myChart" width="570" height="300"></canvas>	
+				<div class="col s6" id="ajaxs">
+					<div class="row">
+						<div class="card-panel box" id="stats-panel">
+							<span class="card-title"><p id="countryP">Country Statistics</p></span>
+							<div id="countryStatistics">
+								<canvas id="myChart" width="370" height="200"></canvas>	
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="card-panel box" id="news-panel">
+							<span class="card-title"><p id="countryP">Related Articles</p></span>
+							<div id="countryArticles"></div>						
+						</div>
 					</div>
 				</div>
+
+
+
 			</div>
+
 		</div>
 
 
