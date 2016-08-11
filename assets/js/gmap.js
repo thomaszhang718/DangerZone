@@ -224,7 +224,7 @@ function callAjax(country) {
 
     console.log(infectiousDisease);
 
-    var queryURL = "http://apps.who.int/gho/athena/api/GHO/" + infectiousDisease + "?filter=COUNTRY:" + abb + "&format=json";
+    var queryURL = "https://apps.who.int/gho/athena/api/GHO/" + infectiousDisease + "?filter=COUNTRY:" + abb + "&format=json";
     //var queryURL = "http://apps.who.int/gho/athena/api/GHO/WHS3_48?filter=COUNTRY:PER&format=json"
 
     console.log(queryURL);
