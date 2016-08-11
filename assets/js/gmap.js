@@ -62,14 +62,6 @@ function myFunctionTest(x,y){
     }
 }
 
-
-
-    //Cholera = WHS3_40
-    //Diphtheria = WHS3_41
-    //Meningitis = WHS3_47
-
-//WHO API stuff
-
 // ALL CHART FUNCTIONS BELOW
 var chartStuff = {
     yearsPlotted:[2000, 2001, 2002, 2003, 2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014], 
@@ -165,8 +157,7 @@ var chartStuff = {
 }
 //////////////////////////////////
 
-//console.log(results[0].address_components[3].long_name)
-//var longCountry = results[0].address_components[results[0].address_components.length - 1].long_name
+//WHO API stuff
 
 function callAjax(country) {
 
@@ -229,9 +220,6 @@ function callAjax(country) {
         }
     }
 
-    //var countrySearch = "USA";
-    
-    //var infectiousDisease = "WHS3_40";
     var infectiousDisease = $('#diseaseSelect').val();
 
     console.log(infectiousDisease);
@@ -240,9 +228,6 @@ function callAjax(country) {
     //var queryURL = "http://apps.who.int/gho/athena/api/GHO/WHS3_48?filter=COUNTRY:PER&format=json"
 
     console.log(queryURL);
-
-    //var diseaseName = $('#cholera').data("disease");
-    //console.log(diseaseName);
 
     var disease = document.getElementById("diseaseSelect");
     var selectedOption = disease.options[disease.selectedIndex];
@@ -291,7 +276,6 @@ function callAjax(country) {
 
         }
 
-        //return true
     });
 
 }
