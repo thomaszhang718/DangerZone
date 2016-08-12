@@ -25,6 +25,9 @@
 	width: 90%;
 	margin-top: 20px;
 }
+	#topRow{
+
+	}
 		#grabAddress{
 			height: 80px;
 			padding-top: 10px;
@@ -44,12 +47,16 @@
 				#submitButton{
 					margin-top: 12px;
 					margin-left: 0;
-				}
+				}		
+	
+	#bottomRow{
+		margin-bottom: 0;
+	}
 
 		#googleMap{
 			position: relative;
 			top:-10px;
-			height: 430px;
+			height: 390px;
 		}
 		iframe {
 			height: 100%;
@@ -62,6 +69,7 @@
 		#ajaxs{
 			position: relative;
 			top: -60px;
+			height: 444px;
 		}
 		#diseaseSelect{
 			height: 40px;
@@ -87,7 +95,7 @@
 			width: 400px;		
 		}
 			#stats-panel p{
-				font-size: 15px;
+				font-size: 16px;
 				font-weight: medium;
 				text-align: center;
 			}
@@ -99,11 +107,24 @@
 			padding-top: 10px;
 			margin-left: 50px;
 			opacity: .95;
-			height: 190px;
+			height: 150px;
 			width: 500px;
 		}
 			#news-panel p{
-				font-size: 15px;
+				font-size: 17px;
 				font-weight: medium;
-				text-align: center;			
+				text-align: center;
+			}
+			#countryArticles{
+				margin-top: 10px;
+			}
+			#countryArticles p{
+				font-style: 13px;
+				margin-left: 15px;
+				padding-bottom: 0;
+				text-align: left;
+			}
+			a{
+				font-size: 13px;
+				color: black;
 			}
